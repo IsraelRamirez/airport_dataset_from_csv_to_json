@@ -17,3 +17,8 @@ Cambiar `inputFileName` por la ruta y el nombre del archivo a extraer los datos,
 Cambiar `charDelimited` por el caracter delimitador del archivo `.csv`, ejemplo: `;` o `,`.
 
 Ejecutar `node index.js`
+
+***
+
+## Notas:
+* Este proceso puede tomar muchos minutos en ejecutarse
