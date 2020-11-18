@@ -16,6 +16,8 @@ Cambiar `inputFileName` por la ruta y el nombre del archivo a extraer los datos,
 
 Cambiar `charDelimited` por el caracter delimitador del archivo `.csv`, ejemplo: `;` o `,`.
 
+Cambiar `cantidadDeFilas` por la cantidad de filas deseadas, ejemplo: `1000`
+
 Ejecutar `node index.js`
 
 ***
