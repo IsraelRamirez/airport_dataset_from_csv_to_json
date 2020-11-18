@@ -1,8 +1,9 @@
 const fs = require('fs')
 
 const exitFileName = '2017.json'
-const charDelimited = ';'
-const inputFileName = 'test_talend_data_extraction.csv'
+const charDelimited = ','
+const inputFileName = './2017.csv'
+const cantidadDeFilas = 1000
 
 class data {
     constructor(items) {
@@ -40,10 +41,11 @@ fs.readFile(inputFileName, 'utf8', (err, dataFile) => {
     if (err) return new Error(err)
     let fullData = dataFile.split('\n')
     fullData.shift()
+    const cant = fullData.length
     let datos = []
-    for (let i = 0; i < fullData.length; i++) {
-        let tmpData = fullData[0].split(charDelimited).map((item) => { return !item ? 0.0 : item })
-        datos.push(new data(tmpData))
+    while (fullData.length >= cant - cantidadDeFilas) {
+        datos.push(new data(fullData.shift().split(charDelimited).map((item) => { return !item ? 0.0 : item })))
+        console.log((datos.length / (cant - cantidadDeFilas)) * 100 + "% completo")
     }
 
     fs.writeFile(exitFileName, JSON.stringify(datos), function(err) {
